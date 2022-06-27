@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="" href="assets/img/android.png">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <title>Vision - Image Forgery Detection Tool</title>
+
+ </head>
+  <body>
+    <div class="container">
+        <div class="row align-items-center justify-content-center" style="min-height: 100vh">
+          <div class="col-sm-10">
+            <div id="AlertPlaceholder"></div>
+            <div id="input" class="card p-4 shadow rounded-lg">
+                    <h4 class="text-center h3 fw-bold lh-1 mb-3">Select the
+                      <span class="text-primary">2</span> images you want to
+                      <span class="text-primary">analyse</span></h4>
+                <div class="row align-items-center">
+                 <div class="col-sm-12 col-lg-6">
+                    <div class="form-group text-center">
+                      <img id="original"class=" mb-2"style="max-width:350px"
+                      src="assets/img/placeholder.png" alt="Landscape placeholder image">
+                      <button class="btn btn-outline-primary p-3 w-100 rounded-pill"
+                      type="button" onclick="getPathToFile('original')" name="button">Select Original Copy</button>
+                    </div>
+                 </div>
+                 <div class="col-sm-12 col-lg-6">
+                   <div class="form-group text-center">
+                     <img id="duplicate"class="mb-2" style="max-width:350px"
+                     src="assets/img/placeholder.png" alt="Landscape place holder image">
+                     <button class="btn btn-outline-primary p-3 w-100 rounded-pill"
+                     type="button" onclick="getPathToFile('duplicate')" name="button">Select Suspected Duplicate</button>
+                   </div>
+                  </div>
+                </div>
+                <button onclick="analyse_images()"class="mt-5 btn p-3 w-100 btn-dark rounded-pill"
+                type="button" name="button">Analyse Results</button>
+               </div>
+               <div id="analysis" style="display:none;" class="card p-4 shadow rounded-lg">
+                 <h4 class="text-center h3 fw-bold lh-1 mb-3">
+                   <span class="text-primary">Analysis</span> of images supplied</h4>
+                 <div class="table-responsive">
+                   <table class="table">
+                     <tr>
+                       <td class="fw-bold text-primary">Images</td>
+                       <td >
+                         <img id="originalimage" src="" width="250" alt="">
+                       </td>
+                       <td >
+                         <img id="duplicateimage" src="" width="250" alt="">
+                       </td>
+                     </tr>
+                     <tr>
+                       <td class="fw-bold text-primary">Names</td>
+                       <td >
+                         Original Image
+                       </td>
+                       <td >
+                         Suspected Duplicate
+                       </td>
+                     </tr>
+                     <tr>
+                       <td class="fw-bold text-primary">Dimensions</td>
+                       <td id="originaldimensions"></td>
+                       <td id="duplicatedimensions"></td>
+                     </tr>
+                   </table>
+                 </div>
+                 <p id="ssim" class="lead fw-normal"></p>
+                 <p id="conclusion" class="lead fw-normal"></p>
+                 <a href="app.html" class="btn btn-outline-primary p-3 mt-4 rounded-pill w-100"
+                 name="button">Refresh Selections</a>
+               </div>
+          </div>
+        </div>
+    </div>
+  </body>
+  <script src="assets/js/bootstrap.bundle.min.js" ></script>
+  <script type="text/javascript" src="../eel.js"></script>
+  <script src="./script.js"></script>
+</html>
